@@ -1,7 +1,7 @@
 ![navi](http://borderhouseblog.com/wp-content/uploads/2011/10/Navi.jpg)
+
+navi
 ====
-
-
 
 Hapi plugin for AR Drone Control over HTTP. 
 
