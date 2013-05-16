@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Stream as module</title>
 	<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
-    <script src="./nodecopter-client.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/nodecopter-client.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
     <h1 id="heading">Drone</h1>
@@ -17,51 +17,84 @@
     <div id="output">   </div>
     <script>
         $( document ).ready(function(){
+			var socket = new WebSocket(
+				 'ws://' +
+				window.document.location.hostname + ':' +
+				9100 + '/flightControls'
+			);
 
-            $(document).keypress(function(event){
+            $(document).keydown(function(event){
+				sendMsg(event.which, 1);
+			});
 
-                switch(event.keyCode) {
-                    case 119: // w
+            $(document).keyup(function(event){
+				sendMsg(event.which, 0);
+			});
 
-                        alert('move forward');
+			function sendMsg(key, val) {
+				console.log("kp: " + event.keyCode);
+
+				var msg = {};
+
+                switch(key) {
+					case 119: // w
+                    case 87: // W
+						msg.front = val;
+                        break;
+
+                    case 115: // s
+                    case 83: // S
+						msg.back = val;
                         break;
 
                     case 97: // a
-
-                        alert('strafe left');
+                    case 65: // A
+						msg.left = val;
                         break
 
-                    case 115: // s
-
-                        alert('move back');
-                        break;
-
                     case 100: // d
-
-                        alert('strafe right');
-                        break;
-
-                    case 101: // e
-
-                        alert('rotate clockwise');	
+                    case 68: // D
+						msg.right = val;
                         break;
 
                     case 113: // q
-                    
-                        alert('rotate counter-clockwise');
+                    case 81: // Q
+						msg.counterClockwise = val;
                         break;
 
-                    case 32: // spacebar
-
-                        alert('raise elevation');	
+                    case 101: // e
+                    case 69: // E
+						msg.clockwise = val;
                         break;
 
-                    case 16: // shift
-                    
-                        alert('lower elevation');
+                    case 38: // UP arrow
+						msg.up = val;
                         break;
+
+                    case 40: // DOWN arrow
+						msg.down = val;
+                        break;
+
+					case 72: // h
+						msg.stop = val;
+						break;
+				
+					case 32: // Spacebar
+						msg.land = val;
+						break;
+
+					case 27: // Escape
+						msg.takeoff = val;
+						break;
                 }
-            });
+
+				console.log("Sending " + JSON.stringify(msg));
+
+				if (msg.action) {
+					socket.send(JSON.stringify(msg));
+				}
+            }
+
         });
     </script>
 </body>
