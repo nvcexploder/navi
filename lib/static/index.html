@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Stream as module</title>
+	<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script src="/nodecopter-client.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <h1 id="heading">Drone</h1>
+
+    <div id="droneStream" style="width: 640px; height: 360px">   </div>
+    <script type="text/javascript" charset="utf-8">
+        new NodecopterStream(document.getElementById("droneStream"));
+    </script>
+
+    <div id="output">   </div>
+    <script>
+        $( document ).ready(function(){
+
+            $(document).keypress(function(event){
+
+                switch(event.keyCode) {
+                    case 87: //W
+
+                        alert('move forward');
+                        break;
+
+                    case 65: //A
+
+                        alert('strafe left');
+                        break
+
+                    case 83: //S
+
+                        alert('move back');
+                        break;
+
+                    case 68: //D
+
+                        alert('strafe right');
+                        break;
+
+                    case 69: //E
+
+                        alert('raise elevation');	
+                        break;
+
+                    case 81: //Q
+                    
+                        alert('lower elevation');
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "YANC",
+  "description": "Yet Another Node Copter",
+  "version": "0.0.1",
+  "author": "Brad Miller",
+  "private": true,
+  "main": "index",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "hoek": "0.8.x",
+    "hapi": "1.x.x",
+    "async": "x.x.x",
+    "ws": "x.x.x",
+    "ar-drone": "x.x.x"
+  },
+  "devDependencies": {
+    "lab": "0.1.x"
+  },
+  "scripts": {
+    "test": "make test && make test-cov"
+  }
+}
