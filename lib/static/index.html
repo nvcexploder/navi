@@ -90,7 +90,7 @@
 
 				console.log("Sending " + JSON.stringify(msg));
 
-				if (msg.action) {
+				if (msg) {
 					socket.send(JSON.stringify(msg));
 				}
             }
