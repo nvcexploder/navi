@@ -16,14 +16,18 @@ internals.server = new Hapi.Server('localhost', 8000, {
 });
 
 var options = {
+    'static': {
+        enable: true,
+        path: '/{param*}'
+    },
     'video': {
         enable: true,
         path: '/video',
         droneIP: '192.168.1.1'
     },
-    'static': {
+    'flightControls': {
         enable: true,
-        path: '/{param*}'
+        path: '/flightControls'
     }
 };
 
