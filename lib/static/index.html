@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Stream as module</title>
 	<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
-    <script src="/nodecopter-client.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./nodecopter-client.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
     <h1 id="heading">Drone</h1>
@@ -21,42 +21,42 @@
             $(document).keypress(function(event){
 
                 switch(event.keyCode) {
-                    case 87: //W
+                    case 119: // w
 
                         alert('move forward');
                         break;
 
-                    case 65: //A
+                    case 97: // a
 
                         alert('strafe left');
                         break
 
-                    case 83: //S
+                    case 115: // s
 
                         alert('move back');
                         break;
 
-                    case 68: //D
+                    case 100: // d
 
                         alert('strafe right');
                         break;
 
-                    case 69: //E
+                    case 101: // e
 
                         alert('rotate clockwise');	
                         break;
 
-                    case 81: //Q
+                    case 113: // q
                     
                         alert('rotate counter-clockwise');
                         break;
 
-                    case 32: //Spacebar
+                    case 32: // spacebar
 
                         alert('raise elevation');	
                         break;
 
-                    case 16: //Shift
+                    case 16: // shift
                     
                         alert('lower elevation');
                         break;
