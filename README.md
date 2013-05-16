@@ -1,5 +1,7 @@
-navi
+![navi](http://borderhouseblog.com/wp-content/uploads/2011/10/Navi.jpg)
 ====
+
+
 
 Hapi plugin for AR Drone Control over HTTP. 
 
@@ -18,20 +20,20 @@ We're using a [hapi](http://spumko.github.io/) plugin to handle this, so familia
 ### Control of coptor
 
 rotation:
-: q - rotate left
-: e - rotate right
++ q - rotate left
++ e - rotate right
 
 movement:
-: w - forward
-: a - strafe left
-: s - backward
-: d - strafe right
++ w - forward
++ a - strafe left
++ s - backward
++ d - strafe right
 
 elevation:
-: up arrow - raise altitude
-: down arrow - lower altitude
++ up arrow - raise altitude
++ down arrow - lower altitude
 
 special:
-: space - STAHP
-: blah takeoff
-: blah landing
++ space - STAHP
++ blah takeoff
++ blah landing
